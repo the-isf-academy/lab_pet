@@ -9,7 +9,7 @@ class Pet:
     def set_name(self, name):
         '''This method sets the name property'''
 
-        self.name = name #Saves the pet's new name
+        self.name = name 
 
     def introduce(self):
         '''This method introduces the pet with its name.'''
