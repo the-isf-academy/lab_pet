@@ -1,27 +1,74 @@
+################################
+# interface for the Pet object
+# ----------
+# it's up to you to finish it! 
+# feel free to customize it as you please.
+################################
+
+# Creates a fancy menu system in the Terminal
 from simple_term_menu import TerminalMenu
-from pet import Pet  #import Pet class
-my_pet = Pet() #create the pet
 
-choice_num = 0
+# Imports the Pet from pet.py
+from pet import Pet  
 
-while(choice_num != 3):
-    options = ["Name your pet", "Entry 2", "Entry 3", "Quit"] #set the menu choices
-    terminal_menu = TerminalMenu(options) #create the menu
-    choice_num = terminal_menu.show() #user selects
 
-    if choice_num == 0:
-        print("-"*30) #print a line
-        print("What would you like to name your pet?") #print the prompt
-        name = input(">>> ") #get the user input
-        my_pet.set_name(name) #set the pet's name
-        print("-"*30) #print a line
+def welcome():
+    print("-"*35)
+    print("---- Welcome to Pet Simulator ----")
+    print("-"*35,"\n")
 
-    elif choice_num == 1:
-        #Replace this with your own code
-        print("You chose", options[choice_num])
+def get_name():
+    print("What would you like to name your pet?")
+    name = input(" > ")
+    return name
 
-    elif choice_num == 2:
-        #Replace this with your own code
-        print("You chose", options[choice_num])
+def intro_game():
+    print("Your pet is ready!")
 
-print("Goodbye")
+def line_break():
+    print("-"*25)
+
+def end_game():
+    print("\n")
+    print("-"*29)
+    print("--- Leaving Pet Simulator ---")
+    print("-"*29)
+
+def menu():
+    '''This function creates an interactive Terminal menu.'''
+
+    options = ["Introduce", "Quit"] #set the menu choices
+    terminal_menu = TerminalMenu(options) #Creates the Terminal Menu 
+    choice_num = terminal_menu.show() #Get user selected Option 
+
+    return choice_num
+
+def game_loop(my_pet):
+    play = True
+
+    while play == True:
+        choice_num = menu()
+
+        if choice_num == 0:
+            my_pet.introduce()
+
+        elif choice_num == 1:
+            play = False
+
+def main():
+    welcome()
+    name = get_name()
+
+    my_pet = Pet() #create the pet
+    my_pet.set_name(name)
+
+    line_break()
+    intro_game()
+    line_break()
+
+    game_loop(my_pet)
+
+    end_game()
+
+
+main()
