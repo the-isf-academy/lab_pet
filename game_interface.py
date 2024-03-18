@@ -27,7 +27,7 @@ game_play = True
 while game_play == True:
     options = ["Introduce", "Quit"] #set the menu choices
 
-    option = menu(options)
+    option = menu("Menu",options)
 
     if option == 'Introduce':
         my_pet.introduce()

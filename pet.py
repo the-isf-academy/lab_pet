@@ -15,7 +15,7 @@ class Pet:
     def introduce(self):
         '''This method introduces the pet with its name.'''
 
-        print("👋 Hi, I am {}!".format(self.name))
+        print(f"👋 Hi, I am {self.name}!")
 
     def play(self):
         '''If the pet is bored, then the pet will play. 

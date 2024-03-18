@@ -1,16 +1,23 @@
-# helper functions
+# helper function
 
-from simple_term_menu import TerminalMenu       # creates a menu system in the Terminal
+from InquirerPy import inquirer, get_style       # creates a menu system in the Terminal
 
 
-def menu(options):
-    '''This function creates an interactive Terminal menu.
-        takes a list as the parameter
+def menu(prompt, options):
+    # This function creates an interactive Terminal menu.
+    # it returns the selected Node 
 
-        e.g. menu(['Play Game','quit'])
-    '''
+    choice = inquirer.select(
+        message= f"\n{prompt}",
+        choices= options,
+        qmark="",
+        amark="",
+        style= get_style({ 
+            "answer": "#438fa8",
+            "pointer": "#438fa8",
+            "questionmark": "hidden"
+            },
+            ),
+        ).execute()
 
-    terminal_menu = TerminalMenu(options)       # creates an instance of the TerminalMenu 
-    option_num = terminal_menu.show()           # stores the user selected option 
-
-    return options[option_num]
+    return choice
