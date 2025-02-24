@@ -19,7 +19,7 @@ my_pet = Pet()                                  #create the pet
 my_pet.set_name(name)
 
 print("-"*25)
-print("{} is ready!".format(my_pet.name))
+print(f"{my_pet.name} is ready!")
 print("-"*25)
 
 game_play = True
