@@ -2,13 +2,13 @@
 
 class Pet:
     def __init__(self):
-        '''This initializes the pet with its properties.'''
+        '''This initializes the pet with its attributes.'''
 
         self.name = None            # stores the pet's name as a string
         self.bored = False          # stores if the pet is bored 
 
     def set_name(self, name):
-        '''This method sets the name property'''
+        '''This method sets the name attribute'''
 
         self.name = name
 
@@ -29,3 +29,9 @@ class Pet:
             print("I don't want to play right now")
             self.bored = False 
 
+if __name__ == "__main__":
+    print('-- testing Pet -- ')
+
+    pet1 = Pet()                # create an instance of a Pet
+    pet1.set_name("Peanut")     # call `set_name()` method
+    print(pet1.name)    
